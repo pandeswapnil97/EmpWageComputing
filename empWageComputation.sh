@@ -280,6 +280,76 @@ echo "Welcome to Employee Wage Computation Program"
 
 #Use Case 8 (Storing Daily Wage along with Total Wage)
 
+#echo "          "
+#
+#IS_FULL_TIME=1
+#IS_PART_TIME=2
+#EMP_WAGE_PER_HR=20
+#NUMBER_OF_WORKING_DAYS=20
+#MAX_WORKING_HRS=100
+#
+#
+#totalEmpHr=0
+#totalWorkingDays=0
+#
+#declare -A daily_emp_wage
+#
+#function getEmpHrs()
+#{
+#        empCheck=$1
+#       case $empCheck in
+#                $IS_PART_TIME)
+#                        empHr=4
+#                ;;
+#                $IS_FULL_TIME)
+#                        empHr=8
+#                ;;
+#                *)
+#                        empHr=0
+#                ;;
+#        esac
+#
+#        echo $empHr
+#}
+#
+#
+#while [[ $totalEmpHr -le $MAX_WORKING_HRS && $totalWorkingDays -le $NUMBER_OF_WORKING_DAYS ]]
+#do
+#        ((totalWorkingDays++))
+#
+#        empCheck=$((RANDOM%3))
+#
+#        empHr=$( getEmpHrs $empCheck )
+#
+#        daily_emp_wage["Day"$totalWorkingDays]=$((EMP_WAGE_PER_HR*empHr))
+#
+#        totalEmpHr=$((totalEmpHr+empHr))
+#
+#       totalEmpWage=$((totalEmpHr*EMP_WAGE_PER_HR))
+#done
+#
+#for i in "${!daily_emp_wage[@]}"
+#do
+#        echo "$i:${daily_emp_wage[$i]}"
+#done
+#
+#echo "          "
+#
+#echo "Total Employee Hours of Employee in a month: "$totalEmpHr
+#
+#echo "          "
+#
+#echo "Total Employee Wage of Employee in a month: "$totalEmpWage
+
+
+
+
+
+
+
+
+#Use Case 9 (Storing Day and Daily Wage along with Total Wage)
+
 echo "          "
 
 IS_FULL_TIME=1
@@ -312,7 +382,6 @@ function getEmpHrs()
         echo $empHr
 }
 
-
 while [[ $totalEmpHr -le $MAX_WORKING_HRS && $totalWorkingDays -le $NUMBER_OF_WORKING_DAYS ]]
 do
         ((totalWorkingDays++))
@@ -325,7 +394,7 @@ do
 
         totalEmpHr=$((totalEmpHr+empHr))
 
-       totalEmpWage=$((totalEmpHr*EMP_WAGE_PER_HR))
+        totalEmpWage=$((totalEmpHr*EMP_WAGE_PER_HR))
 done
 
 for i in "${!daily_emp_wage[@]}"
@@ -340,4 +409,3 @@ echo "Total Employee Hours of Employee in a month: "$totalEmpHr
 echo "          "
 
 echo "Total Employee Wage of Employee in a month: "$totalEmpWage
-
