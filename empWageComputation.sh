@@ -76,27 +76,78 @@ echo "Welcome to Employee Wage Computation Program"
 
 #Use Case 4 (Solving Using Switch Case)
 
-empCheck=$((RANDOM%3))
+#empCheck=$((RANDOM%3))
+#
+#IS_FULL_TIME=1
+#IS_PART_TIME=2
+#EMP_WAGE_PER_HR=20
+#
+#empHr=0
+#
+#case $empCheck in
+#       $IS_FULL_TIME)
+#                echo "Employee is Full-Time"
+#                empHr=8
+#       ;;
+#       $IS_PART_TIME)
+#               echo "Employee is Part_Time"
+#               empHr=4
+#       ;;
+#       *)
+#               echo "Employee is Absent"
+#               empHr=0
+#       ;;
+#esac
+#
+#echo "Employee's Daily Wage: "$((EMP_WAGE_PER_HR*empHr))
+
+
+
+
+
+
+
+
+
+#Use Case 5 (Calculating Wages for a Month)
+
+
+echo "          "
 
 IS_FULL_TIME=1
 IS_PART_TIME=2
 EMP_WAGE_PER_HR=20
+NUMBER_OF_WORKING_DAYS=20
 
-empHr=0
+totalWorkingDays=0
 
-case $empCheck in
-       $IS_FULL_TIME)
-                echo "Employee is Full-Time"
-                empHr=8
-       ;;
-       $IS_PART_TIME)
-               echo "Employee is Part_Time"
-               empHr=4
-       ;;
-       *)
-               echo "Employee is Absent"
-               empHr=0
-       ;;
-esac
+declare -A daily_emp_wage
 
-echo "Employee's Daily Wage: "$((EMP_WAGE_PER_HR*empHr))
+
+while [ $totalWorkingDays -le $NUMBER_OF_WORKING_DAYS ]
+do
+
+       ((totalWorkingDays++))
+
+       empCheck=$((RANDOM%3))
+
+       case $empCheck in
+               $IS_PART_TIME)
+                       empHr=4
+               ;;
+               $IS_FULL_TIME)
+                       empHr=8
+               ;;
+               *)
+                       empHr=0
+               ;;
+       esac
+
+       daily_emp_wage["Day"$totalWorkingDays]=$((EMP_WAGE_PER_HR*empHr))
+done
+
+for i in "${!daily_emp_wage[@]}"
+do
+       echo "$i:${daily_emp_wage[$i]}"
+done
+
